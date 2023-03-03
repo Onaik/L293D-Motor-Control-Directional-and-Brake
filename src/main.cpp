@@ -2,18 +2,18 @@
 #include <L293.h>
 
 // give a name to the pins that you use for the first motor
-const int speedPin1 = 3;            // the pin that we use to control the motor's speed
-const int forwardPin1 = 2;         // the pin that we use to tell the motor to go forward
-const int reversePin1 = 4;         // the pin that we use to tell the motor to go reverse
-const int forwardButton = 5;      // the pin that we use for the forward button
-const int reverseButton = 6;      // the pin that we use for the reverse button
-const int forwardContButton = 7;  // the pin that we use for the forward continuous button
-const int reverseContButton = 8;  // the pin that we use for the reverse continuous button
-const int potPin1 = A3;            // the pin that we use for the potentiometer
+const int speedPin1 = 3;            // the pin that we use to control the motor's speed  // connected to the enable pin of the motor driver
+const int forwardPin1 = 2;         // the pin that we use to tell the motor to go forward // connected to the input 1 pin of the motor driver
+const int reversePin1 = 4;         // the pin that we use to tell the motor to go reverse // connected to the input 2 pin of the motor driver
+const int forwardButton = 5;      // the pin that we use for the forward button // connected to the button
+const int reverseButton = 6;      // the pin that we use for the reverse button // connected to the button
+const int forwardContButton = 7;  // the pin that we use for the forward continuous button // connected to the button
+const int reverseContButton = 8;  // the pin that we use for the reverse continuous button // connected to the button
+const int potPin1 = A3;            // the pin that we use for the potentiometer //  connected to the potentiometer
 // give a name to the pins that you use for the second motor
-const int speedPin2 = 9;            // the pin that we use to control the motor's speed
-const int forwardPin2 = 10;        // the pin that we use to tell the motor to go forward
-const int reversePin2 = 11;        // the pin that we use to tell the motor to go reverse
+const int speedPin2 = 9;            // the pin that we use to control the motor's speed // connected to the second enable pin of the motor driver
+const int forwardPin2 = 10;        // the pin that we use to tell the motor to go forward // connected to the input 3 pin of the motor driver
+const int reversePin2 = 11;        // the pin that we use to tell the motor to go reverse // connected to the input 4 pin of the motor driver
 const int forwardButton2 = 12;     // the pin that we use for the forward button
 const int reverseButton2 = 13;     // the pin that we use for the reverse button
 const int forwardContButton2 = A1; // the pin that we use for the forward continuous button
