@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "../../UL2003 Stepper Motor Driver With Potentiometer Direction Control"
+		},
+		{
+			"name": "L293D Motor Control Directional and Brake",
+			"path": ".."
+		}
+	],
+	"settings": {}
+}
