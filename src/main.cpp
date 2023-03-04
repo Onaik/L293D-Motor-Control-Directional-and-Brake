@@ -1,32 +1,32 @@
-// import the library in the sketch
 #include <L293.h>
 
 // give a name to the pins that you use for the first motor
-const int speedPin1 = 3;            // the pin that we use to control the motor's speed  // connected to the enable pin of the motor driver
-const int forwardPin1 = 2;         // the pin that we use to tell the motor to go forward // connected to the input 1 pin of the motor driver
-const int reversePin1 = 4;         // the pin that we use to tell the motor to go reverse // connected to the input 2 pin of the motor driver
-const int forwardButton = 5;      // the pin that we use for the forward button // connected to the button
-const int reverseButton = 6;      // the pin that we use for the reverse button // connected to the button
-const int forwardContButton = 7;  // the pin that we use for the forward continuous button // connected to the button
-const int reverseContButton = 8;  // the pin that we use for the reverse continuous button // connected to the button
-const int potPin1 = A3;            // the pin that we use for the potentiometer //  connected to the potentiometer
+const int speedPin1 = 3;            // the pin that we use to control the motor's speed
+const int forwardPin1 = 2;         // the pin that we use to tell the motor to go forward
+const int reversePin1 = 4;         // the pin that we use to tell the motor to go reverse
+const int forwardButton = 5;      // the pin that we use for the forward button
+const int reverseButton = 6;      // the pin that we use for the reverse button
+const int forwardContButton = 7;  // the pin that we use for the forward continuous button
+const int reverseContButton = 8;  // the pin that we use for the reverse continuous button
+const int potPin1 = A3;            // the pin that we use for the first motor's potentiometer
+
 // give a name to the pins that you use for the second motor
-const int speedPin2 = 9;            // the pin that we use to control the motor's speed // connected to the second enable pin of the motor driver
-const int forwardPin2 = 10;        // the pin that we use to tell the motor to go forward // connected to the input 3 pin of the motor driver
-const int reversePin2 = 11;        // the pin that we use to tell the motor to go reverse // connected to the input 4 pin of the motor driver
+const int speedPin2 = 9;            // the pin that we use to control the motor's speed
+const int forwardPin2 = 10;        // the pin that we use to tell the motor to go forward
+const int reversePin2 = 11;        // the pin that we use to tell the motor to go reverse
 const int forwardButton2 = 12;     // the pin that we use for the forward button
 const int reverseButton2 = 13;     // the pin that we use for the reverse button
 const int forwardContButton2 = A1; // the pin that we use for the forward continuous button
 const int reverseContButton2 = A2; // the pin that we use for the reverse continuous button
-const int potPin2 = A4;            // the pin that we use for the potentiometer
+const int potPin2 = A4;            // the pin that we use for the second motor's potentiometer
+
 // make a new instance of the L293 library and call it "motor1" and "motor2"
 L293 motor(speedPin1, forwardPin1, reversePin1);
 L293 motor2(speedPin2, forwardPin2, reversePin2);
-  // initialize potentiometer pins
 
 void setup()
 {
-  
+  // initialize serial communication
   Serial.begin(9600);
 
   // initialize input pins for all buttons
@@ -39,20 +39,27 @@ void setup()
   pinMode(reverseButton2, INPUT_PULLUP);
   pinMode(forwardContButton2, INPUT_PULLUP);
   pinMode(reverseContButton2, INPUT_PULLUP);
-   pinMode(potPin1, INPUT);
+
+  // initialize potentiometer pins
+  pinMode(potPin1, INPUT);
   pinMode(potPin2, INPUT);
 }
 
 void loop()
 {
- 
   // read the potentiometer values for each motor
   int potValue1 = analogRead(potPin1);
   int potValue2 = analogRead(potPin2);
 
+  Serial.print("Potentiometer 1 value: ");
+Serial.println(potValue1);
+
   // map the potentiometer values to the range of 0-255 for motor speed
-  int motorSpeed1 = map(potValue1, 0, 1023, 0, 255);
-  int motorSpeed2 = map(potValue2, 0, 1023, 0, 255);
+  int motorSpeed1 = map(potValue1, 300, 1023, 0, 255);
+  int motorSpeed2 = map(potValue2, 300, 1023, 0, 255);
+
+
+
   // check if the forward button of motor 1 is pressed
   if (digitalRead(forwardButton) == LOW)
   {
@@ -143,4 +150,4 @@ void loop()
     // call the back function with the mapped speed value
     motor2.back(motorSpeed2);
   }
-}
+}                  
